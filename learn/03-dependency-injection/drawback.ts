@@ -21,7 +21,7 @@ class Car {
 
   constructor() {
     // this.engine = new Engine();
-    this.engine = new NewEngine();// If the engine enhanced, the car will be broken.
+    this.engine = new NewEngine("Running faster!");// If the engine enhanced, the car will be broken.
     this.tire = new Tire();
   }
 }
