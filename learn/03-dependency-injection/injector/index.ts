@@ -9,7 +9,10 @@ export const Injector = new class {
     // tokens are required dependencies, while injections are resolved tokens from the Injector
     let tokens = Reflect.getMetadata('design:paramtypes', target) || [],
         injections = tokens.map((token: Type<any>) => Injector.resolve<any>(token));
+        // let denpendendClass = Reflect.getMetadata('design:paramtypes', target) || [],
+        // injections = denpendendClass.map((dc: Type<any>) => new dc);
     
+      console.log('injections: ' + injections);
     return new target(...injections);
   }
 };
@@ -17,6 +20,6 @@ export const Injector = new class {
 export const Injectable = (): ClassDecorator => {
   return target => {
     const metadata = Reflect.getMetadata('esign:paramtypes', target);
-    console.log(metadata)
+    console.log('metadata:' + metadata);
   }
 }

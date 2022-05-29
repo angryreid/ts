@@ -4,16 +4,23 @@ class Bar {
   a = 1;
 }
 
-@Injectable()
 class Foo {
-  constructor(private bar: Bar) {
-    console.log(this.bar.a);
+  b = 2
+}
+
+@Injectable()
+class FooBar {
+  constructor(private bar: Bar, private foo: Foo) {}
+
+  barStuff() {
+    console.log('bar: ' + this.bar.a );
   }
 
-  foo() {
-    console.log('foo: ' + this.bar.a);
+  fooStuff() {
+    console.log('foo: ' + this.foo.b);
   }
 }
 
-const foo = Injector.resolve<Foo>(Foo);
-foo.foo();
+const foobar = Injector.resolve<FooBar>(FooBar);
+foobar.fooStuff();
+foobar.barStuff();
