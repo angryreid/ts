@@ -13,4 +13,6 @@ const newEngine = new NewEngine('Running faster.');
 const tire = new Tire();
 const car = new Car();
 const diCar = new DICar(engine, tire);
-const diCar2 = new DICar(newEngine, tire); // No need to change any code.
+const diCar2 = new DICar(newEngine, tire); // No need to change any code. More flexable
+
+// const diCar3 = Injector.resolve<DICar>(DICar);
